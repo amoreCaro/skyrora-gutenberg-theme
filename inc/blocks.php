@@ -41,6 +41,30 @@ function theme_acf_blocks() {
             'icon'            => 'admin-links',
             'keywords'        => array('products', 'shop'),
         ));
+
+        acf_register_block(array(
+            'name'            => 'innovation',
+            'title'           => 'Block - Innovation',
+            'category'        => 'awenn',
+            'render_template' => PATH . '/inc/blocks/innovation/preview.php',
+            'mode'            => 'preview',
+            'icon'            => 'admin-links',
+            'keywords'        => array('products', 'shop'),
+        ));
+
+        /**
+         * Leaders block
+         * Displays a leaders section block.
+         */
+        acf_register_block(array(
+            'name'            => 'leaders',
+            'title'           => 'Block - Leaders',
+            'category'        => 'awenn',
+            'render_template' => PATH . '/inc/blocks/leaders/preview.php',
+            'mode'            => 'preview',
+            'icon'            => 'admin-links',
+            'keywords'        => array('products', 'shop'),
+        ));
     }
 }
 
