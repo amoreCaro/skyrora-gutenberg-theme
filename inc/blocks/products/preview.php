@@ -2,7 +2,7 @@
 <section data-rellax-speed="-8" id="mainPageCategoriesId" class="section section--nextIsVideo categories rellax">
     <div class="container">
         <div class="grid-container grid-container--type1">
-            <?php $product_ids = get_sub_field('acf_home_list_products');
+            <?php $product_ids = get_field('products_list');
 
                 $product_args = array(
                     'post_type' => 'product',

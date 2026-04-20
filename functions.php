@@ -12,3 +12,4 @@ require PATH . '/inc/setup.php';
 require PATH . '/inc/enqueues.php';
 require PATH . '/inc/helpers.php';
 require PATH . '/inc/blocks.php';
+require PATH . '/inc/post-types.php';
