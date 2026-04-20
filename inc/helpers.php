@@ -63,3 +63,50 @@ function swipeks_leader_custom_link($select_data, $post_link_data, $category_lin
         }
     }
 }
+
+/**
+ * Outputs an ACF field value with proper escaping based on context.
+ *
+ * This helper retrieves a value from ACF using get_field() and safely outputs it
+ * depending on the specified context type.
+ *
+ * Available output types:
+ * - 'attr'     → escapes value for HTML attributes (esc_attr)
+ * - 'url'      → escapes value for URLs (esc_url)
+ * - 'textarea' → escapes value for textarea content (esc_textarea)
+ * - 'html'     → default, escapes general HTML output (esc_html)
+ *
+ * If the field is empty, nothing is output.
+ *
+ * @param string $field_name Name of the ACF field.
+ * @param string $type Output context type ('html', 'attr', 'url', 'textarea').
+ *
+ * @return void
+ */
+function skyrora_print_escaped_field($field_name, $type = 'html')
+{
+	$value = get_field($field_name);
+
+	if (empty($value)) {
+		return;
+	}
+
+	switch ($type) {
+		case 'attr':
+			echo esc_attr($value);
+			break;
+
+		case 'url':
+			echo esc_url($value);
+			break;
+
+		case 'textarea':
+			echo esc_textarea($value);
+			break;
+
+		case 'html':
+		default:
+			echo esc_html($value);
+			break;
+	}
+}

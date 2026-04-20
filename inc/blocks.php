@@ -24,8 +24,36 @@ function theme_acf_blocks() {
             'category'        => 'awenn',
             'render_template' => PATH . '/inc/blocks/banner/preview.php',
             'mode'            => 'preview',
-            'icon'            => 'admin-links',
+            'icon'            => 'cover-image',
             'keywords'        => array('banner'),
+        ));
+
+        /**
+         * Products block
+         * Displays a products section block.
+         */
+        acf_register_block(array(
+            'name'            => 'products',
+            'title'           => 'Block - Products',
+            'category'        => 'awenn',
+            'render_template' => PATH . '/inc/blocks/products/preview.php',
+            'mode'            => 'preview',
+            'icon'            => 'cart',
+            'keywords'        => array('products'),
+        ));
+
+        /**
+         * Innovation block
+         * Displays a innovation section block.
+         */
+        acf_register_block(array(
+            'name'            => 'innovation',
+            'title'           => 'Block - Innovation',
+            'category'        => 'awenn',
+            'render_template' => PATH . '/inc/blocks/innovation/preview.php',
+            'mode'            => 'preview',
+            'icon'            => 'lightbulb',
+            'keywords'        => array('products', 'shop'),
         ));
 
         /**
@@ -33,12 +61,40 @@ function theme_acf_blocks() {
          * Displays a products section block.
          */
         acf_register_block(array(
-            'name'            => 'products',
+            'name'            => 'dedicated',
             'title'           => 'Block - Dedicated',
             'category'        => 'awenn',
             'render_template' => PATH . '/inc/blocks/dedicated/preview.php',
             'mode'            => 'preview',
-            'icon'            => 'admin-links',
+            'icon'            => 'cart',
+            'keywords'        => array('dedicated'),
+        ));
+
+        /**
+         * News block
+         * Displays a news section block.
+         */
+        acf_register_block(array(
+            'name'            => 'news',
+            'title'           => 'Block - News',
+            'category'        => 'awenn',
+            'render_template' => PATH . '/inc/blocks/news/preview.php',
+            'mode'            => 'preview',
+            'icon'            => 'megaphone',
+            'keywords'        => array('products', 'shop'),
+        ));
+
+        /**
+         * Leaders block
+         * Displays a leaders section block.
+         */
+        acf_register_block(array(
+            'name'            => 'leaders',
+            'title'           => 'Block - Leaders',
+            'category'        => 'awenn',
+            'render_template' => PATH . '/inc/blocks/leaders/preview.php',
+            'mode'            => 'preview',
+            'icon'            => 'groups',
             'keywords'        => array('products', 'shop'),
         ));
     }
