@@ -53,7 +53,7 @@ if (!defined('ABSPATH')) {
                     <div class="banner__content-logo">
                         <?php foreach ($logos as $item) {
 
-                            $image_id = $item['banner_image'] ?? null;
+                            $image_id = $item['ID'] ?? null;
 
                             if (!$image_id) {
                                 continue;
