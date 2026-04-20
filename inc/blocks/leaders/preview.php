@@ -34,7 +34,7 @@
 
                         <a 
                             href="<?php echo get_permalink($leader_id); ?>" 
-                            class="<?php skyrora_print_escaped_field($col_class, 'attr'); ?>">
+                            class="<?php echo esc_attr($col_class); ?>">
 
                             <div class="leader-item">
 

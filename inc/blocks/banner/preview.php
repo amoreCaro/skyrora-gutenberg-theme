@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+
+
 ?>
 
 <section id="section-<?php echo esc_attr(get_row_index()); ?>" class="banner--landing banner--description section banner js-viewport-checker">
