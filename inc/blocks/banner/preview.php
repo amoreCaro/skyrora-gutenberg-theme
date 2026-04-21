@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
     <?php } else { ?>
 
         <div id="bannerVideoId"
-             data-src="<?php skyrora_print_escaped_field('banner_image', 'url'); ?>"
+             data-src="<?php skyrora_print_escaped_field('banner_image', false, 'url'); ?>"
              class="banner__video banner--image">
 
             <div class="bv-video-wrap bv-video-wrap-0" style="position: relative; overflow: hidden; z-index: 10;">
@@ -46,27 +46,27 @@ if (!defined('ABSPATH')) {
         <div class="banner__content">
 
             <div class="banner__content-txt">
-                <?php
-                $logos = get_field('banner_images');
+            <?php
+            $logos = get_field('banner_images');
 
-                if (!empty($logos)) { ?>
-                    <div class="banner__content-logo">
-                        <?php foreach ($logos as $item) {
+            if (!empty($logos)) { ?>
+                <div class="banner__content-logo">
+                    <?php foreach ($logos as $item) {
 
-                            $image_id = $item['ID'] ?? null;
+                        $image_id = $item['ID'] ?? null;
 
-                            if (!$image_id) {
-                                continue;
-                            }
-                            ?>
-                            <div class="banner__content-logo__item">
-                                <figure>
-                                    <?php skyrora_image($image_id, 300, 300); ?>
-                                </figure>
-                            </div>
-                        <?php } ?>
-                    </div>
-                <?php } ?>
+                        if (!$image_id) {
+                            continue;
+                        }
+                        ?>
+                        <div class="banner__content-logo__item">
+                            <figure>
+                                <?php skyrora_image($image_id, 300, 300); ?>
+                            </figure>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
 
                 <?php if (get_field('banner_title')) { ?>
                     <h1>

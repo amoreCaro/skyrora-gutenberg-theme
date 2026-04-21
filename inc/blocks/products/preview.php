@@ -28,13 +28,13 @@
                                     <div class="product__info-top">
                                         <?php if( get_the_title($product_id) ){ ?>
                                             <span>
-                                                <?php echo get_the_title($product_id); ?>
+                                                <?php echo esc_html( get_the_title($product_id) ); ?>
                                             </span>
                                         <?php } ?>
 
                                         <?php if( get_field('acf_product_short_content', $product_id) ){ ?>
                                             <p>
-                                                <?php echo get_field('acf_product_short_content', $product_id); ?>
+                                                <?php skyrora_print_escaped_field('acf_product_short_content'); ?>
                                             </p>
                                         <?php } ?>
                                     </div>
@@ -48,8 +48,8 @@
                                 <div class="product__picture">
                                     <?php if( get_field('acf_product_hover', $product_id) ){ ?>
                                         <video class="product__video" loop="loop" muted="muted" loading="lazy" decoding="async" poster="<?php skyrora_image_url($product_image_id, 150, 880, ); ?>">
-                                            <source src="<?php echo esc_url(get_field('acf_product_hover', $product_id)); ?>" type="video/webm">
-                                            <source src="<?php echo esc_url(get_field('acf_product_hover_safary', $product_id)); ?>" type="video/quicktime">
+                                           <source src="<?php skyrora_print_escaped_field('acf_product_hover', 'url'); ?>" type="video/webm">
+                                        <source src="<?php skyrora_print_escaped_field('acf_product_hover_safary', 'url'); ?>" type="video/quicktime">
                                         </video>
                                     <?php }  else { 
                                          skyrora_image($product_image_id, 180, 220, );
@@ -66,13 +66,13 @@
                                     <div class="product__info-top">
                                         <?php if( get_the_title($product_id) ){ ?>
                                             <span>
-                                                <?php echo get_the_title($product_id); ?>
+                                                <?php echo esc_html( get_the_title($product_id) ); ?>
                                             </span>
                                         <?php } ?>
 
                                         <?php if( get_field('acf_product_short_content', $product_id) ){ ?>
                                             <p>
-                                                <?php echo get_field('acf_product_short_content', $product_id); ?>
+                                                <?php echo esc_html( get_field('acf_product_short_content', $product_id) ); ?>
                                             </p>
                                         <?php } ?>
                                     </div>
@@ -106,13 +106,13 @@
                                         <div class="product__info-top">
                                             <?php if( get_the_title($product_id) ){ ?>
                                                 <span>
-                                                    <?php echo get_the_title($product_id); ?>
+                                                    <?php echo esc_html( get_the_title($product_id) ); ?>
                                                 </span>
                                             <?php } ?>
 
                                             <?php if( get_field('acf_product_short_content', $product_id) ){ ?>
                                                 <p>
-                                                    <?php echo get_field('acf_product_short_content', $product_id); ?>
+                                                    <?php echo esc_html( get_field('acf_product_short_content', $product_id) ); ?>
                                                 </p>
                                             <?php } ?>
                                         </div>
