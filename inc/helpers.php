@@ -110,8 +110,3 @@ function skyrora_print_escaped_field($field_name, $type = 'html')
 			break;
 	}
 }
-
-
-theme_text
-get return 
-the_ echo

@@ -10,31 +10,18 @@ function theme_scripts_front() {
     wp_enqueue_style( 'all', THEME . '/dist/s/css/all.css' );
 
     // Load helper CSS file (utility/helper classes)
-	wp_enqueue_style( 'helper', THEME . '/dist/s/css/helper.css' );
+    wp_enqueue_style( 'helper', THEME . '/dist/s/css/helper.css' );
 
     // Load main JavaScript file with jQuery as a dependency
     wp_enqueue_script('main', THEME . '/dist/s/js/main.js', array('jquery'), '1.0', true);
 }
 
-// Hook the function into WordPress front-end script loading
-add_action ( 'wp_enqueue_scripts', 'theme_scripts_front' );
+// Set priority to 100 to make sure we dequeue styles successfully
+add_action( 'wp_enqueue_scripts', 'theme_scripts_front', 100 );
 
 function theme_gutenberg_scripts() {
-    // Load main compiled CSS file (all styles)
-    // wp_enqueue_style( 'all', THEME . '/dist/s/css/all.css' );
-
-    // Load helper CSS file (utility/helper classes)
-	//wp_enqueue_style( 'helper', THEME . '/dist/s/css/helper.css' );
-
     // Load main JavaScript file with jQuery as a dependency
-    wp_enqueue_script('blocks', THEME . '/dist/s/js/main.js', array('jquery'), '1.0', true);
+    // wp_enqueue_script('blocks', THEME . '/dist/s/js/main.js', array('jquery'), '1.0', true);
 }
 
 add_action ( 'enqueue_block_assets', 'theme_gutenberg_scripts' );
-
-function theme_admin_scripts() {
-    // Load main compiled CSS file (all styles)
-    wp_enqueue_style( 'admin_helper', THEME . '/inc/admin/admin.css' );
-}
-
-add_action ( 'admin_head', 'theme_admin_scripts' );
