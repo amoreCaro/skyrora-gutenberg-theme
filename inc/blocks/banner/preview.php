@@ -4,8 +4,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-
-
+/**
+ * Block Name: Banner
+ */
 ?>
 
 <section id="section-<?php echo esc_attr(get_row_index()); ?>" class="banner--landing banner--description section banner js-viewport-checker">
@@ -23,7 +24,7 @@ if (!defined('ABSPATH')) {
     <?php } else { ?>
 
         <div id="bannerVideoId"
-             data-src="<?php skyrora_print_escaped_field('banner_image', false, 'url'); ?>"
+             data-src="<?php skyrora_print_escaped_field('banner_image', 'url'); ?>"
              class="banner__video banner--image">
 
             <div class="bv-video-wrap bv-video-wrap-0" style="position: relative; overflow: hidden; z-index: 10;">
@@ -70,7 +71,7 @@ if (!defined('ABSPATH')) {
 
                 <?php if (get_field('banner_title')) { ?>
                     <h1>
-                        <?php skyrora_print_escaped_field('banner_title'); ?>
+                        <?php skyrora_print_escaped_field('banner_title', 'textarea'); ?>
                     </h1>
                 <?php } ?>
 

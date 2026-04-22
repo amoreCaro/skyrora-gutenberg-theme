@@ -1,9 +1,19 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Block Name: News
+ */
+?>
+
 <section class="section news js-viewport-checker invisible">
     <div class="container">
         <div class="news__top">
             <?php if( get_field('news_title') ){ ?>
                 <h2>
-                    <?php skyrora_print_escaped_field('news_title')  ?>
+                    <?php skyrora_print_escaped_field('news_title', 'textarea'); ?>
                 </h2>
             <?php } ?>
         </div>
@@ -26,7 +36,7 @@
                             <div class="col-lg-16 col-md-12 col-24">
                                 
                                 <?php if( get_field('ac_post_advanced_link_choice', $id ) == 'yes' ): ?>
-                                    <a href="<?php skyrora_print_escaped_field('ac_post_advanced_link', 'url'); ?>" class="news-banner" <?php if( get_field('ac_post_advanced_link_tab', $id) == 'yes' ){ echo 'target="_blank"'; } ?>>
+                                    <a href="<?php echo esc_url(get_field('ac_post_advanced_link', $id)); ?>" class="news-banner" <?php if( get_field('ac_post_advanced_link_tab', $id) == 'yes' ){ echo 'target="_blank"'; } ?>>
                                 <?php else: ?>
                                     <a href="<?php echo esc_url( get_the_permalink($id) ); ?>" class="news-banner" <?php if( get_field('ac_post_advanced_link_tab', $id) == 'yes' ){ echo 'target="_blank"'; } ?>>
                                 <?php endif; ?>  
@@ -149,7 +159,7 @@
                     <?php skyrora_print_escaped_field('news_button_text'); ?>
                 </span>
                 <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                    <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                    <use xlink:href="<?php echo esc_url(THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right'); ?>">
                 </svg>
             </a>
         </div>

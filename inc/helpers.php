@@ -99,14 +99,19 @@ function skyrora_print_escaped_field($field_name, $type = 'html')
 		case 'url':
 			echo esc_url($value);
 			break;
-
-		case 'textarea':
-			echo esc_textarea($value);
-			break;
-
+        case 'textarea':
+            echo wp_kses($value, [
+                'br' => []
+            ]);
+            break;
 		case 'html':
 		default:
 			echo esc_html($value);
 			break;
 	}
 }
+
+
+theme_text
+get return 
+the_ echo

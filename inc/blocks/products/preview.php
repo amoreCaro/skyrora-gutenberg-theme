@@ -1,3 +1,12 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Block Name: Products
+ */
+?>
 
 <section data-rellax-speed="-8" id="mainPageCategoriesId" class="section section--nextIsVideo categories rellax">
     <div class="container">
@@ -23,7 +32,7 @@
                         $product_link = get_the_permalink($product_id);
 
                         if($product_index == 0){ ?>
-                            <a href="<?php the_permalink($product_id); ?>" class="js-product product product--<?php esc_attr_e($product_index); ?>">
+                            <a href="<?php echo esc_url( get_permalink( $product_id ) ); ?>" class="js-product product product--<?php echo esc_attr( $product_index ); ?>">
                                 <div class="product__info">
                                     <div class="product__info-top">
                                         <?php if( get_the_title($product_id) ){ ?>
@@ -41,7 +50,7 @@
                                     <div class="product__info-read">
                                         <span>Read more</span>
                                         <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                                            <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                                            <use xlink:href="<?php echo esc_url( THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right' ); ?>"></use>
                                         </svg>
                                     </div>
                                 </div>
@@ -61,7 +70,7 @@
                         } 
 
                         elseif( $product_index > 0 && $product_index < 5 ){ ?>
-                            <a href="<?php the_permalink($product_id); ?>" class="js-product product product--<?php esc_attr_e($product_index); ?>">
+                            <a href="<?php echo esc_url( get_permalink($product_id) ); ?>" class="js-product product product--<?php esc_attr_e($product_index); ?>">
                                 <div class="product__info">
                                     <div class="product__info-top">
                                         <?php if( get_the_title($product_id) ){ ?>
@@ -79,7 +88,7 @@
                                     <div class="product__info-read">
                                         <span>Read more</span>
                                         <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                                            <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                                            <use xlink:href="<?php echo esc_url( THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right' ); ?>"></use>
                                         </svg>
                                     </div>
                                 </div>
@@ -98,7 +107,7 @@
                             </a>
                         <?php } else { ?>
                             <?php if( $product_status == 'publish'){ ?>
-                                <a href="<?php the_permalink($product_id); ?>" class="product--horizontal product product--<?php esc_attr_e($product_index); ?>">
+                                <a href="<?php echo esc_url( get_permalink($product_id) ); ?>" class="product--horizontal product product--<?php esc_attr_e($product_index); ?>">
                             <?php } else { ?> 
                                 <div class="product--horizontal product product--<?php esc_attr_e($product_index); ?>">
                             <?php } ?>
@@ -120,7 +129,7 @@
                                             <div class="product__info-read">
                                                 <span>Read more</span>
                                                 <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                                                    <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                                                    <use xlink:href="<?php echo esc_url( THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right' ); ?>"></use>
                                                 </svg>
                                             </div>
                                         <?php } ?>

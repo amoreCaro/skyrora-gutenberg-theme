@@ -1,4 +1,8 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Block Name: Innovation
  */
@@ -22,7 +26,7 @@
                     <div class="col-md-14 col-24">
                         <article>
                             <?php if ( get_field('innovation_title') ): ?>
-                                <h2><?php skyrora_print_escaped_field('innovation_title'); ?></h2>
+                                <h2><?php skyrora_print_escaped_field('innovation_title', 'textarea'); ?></h2>
                             <?php endif; ?>
 
                             <?php if ( get_field('innovation_content') ): ?>
@@ -37,14 +41,13 @@
                                 <?php while ( have_rows('innovation_list') ): the_row(); ?>
                                     <?php if ( get_sub_field('innovation_list_text') ): ?>
                                         <li>
-                                            <span><?php esc_html( the_sub_field('innovation_list_text') ); ?></span>
+                                            <span><?php echo esc_html( get_sub_field('innovation_list_text') ); ?></span>
                                         </li>
                                     <?php endif; ?>
                                 <?php endwhile; ?>
                             </ul>
                         <?php endif; ?>
                     </div>
-
                 </div>
             </div>
         </div>
