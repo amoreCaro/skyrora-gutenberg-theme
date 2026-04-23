@@ -4,8 +4,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-
-
+/**
+ * Block Name: Banner
+ */
 ?>
 
 <section id="section-<?php echo esc_attr(get_row_index()); ?>" class="banner--landing banner--description section banner js-viewport-checker">
@@ -46,31 +47,31 @@ if (!defined('ABSPATH')) {
         <div class="banner__content">
 
             <div class="banner__content-txt">
-                <?php
-                $logos = get_field('banner_images');
+            <?php
+            $logos = get_field('banner_images');
 
-                if (!empty($logos)) { ?>
-                    <div class="banner__content-logo">
-                        <?php foreach ($logos as $item) {
+            if (!empty($logos)) { ?>
+                <div class="banner__content-logo">
+                    <?php foreach ($logos as $item) {
 
-                            $image_id = $item['banner_image'] ?? null;
+                        $image_id = $item['ID'] ?? null;
 
-                            if (!$image_id) {
-                                continue;
-                            }
-                            ?>
-                            <div class="banner__content-logo__item">
-                                <figure>
-                                    <?php skyrora_image($image_id, 300, 300); ?>
-                                </figure>
-                            </div>
-                        <?php } ?>
-                    </div>
-                <?php } ?>
+                        if (!$image_id) {
+                            continue;
+                        }
+                        ?>
+                        <div class="banner__content-logo__item">
+                            <figure>
+                                <?php skyrora_image($image_id, 300, 300); ?>
+                            </figure>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php } ?>
 
                 <?php if (get_field('banner_title')) { ?>
                     <h1>
-                        <?php skyrora_print_escaped_field('banner_title'); ?>
+                        <?php skyrora_print_escaped_field('banner_title', 'textarea'); ?>
                     </h1>
                 <?php } ?>
 

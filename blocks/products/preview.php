@@ -1,8 +1,17 @@
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Block Name: Products
+ */
+?>
 
 <section data-rellax-speed="-8" id="mainPageCategoriesId" class="section section--nextIsVideo categories rellax">
     <div class="container">
         <div class="grid-container grid-container--type1">
-            <?php $product_ids = get_sub_field('acf_home_list_products');
+            <?php $product_ids = get_field('products_list');
 
                 $product_args = array(
                     'post_type' => 'product',
@@ -23,33 +32,33 @@
                         $product_link = get_the_permalink($product_id);
 
                         if($product_index == 0){ ?>
-                            <a href="<?php the_permalink($product_id); ?>" class="js-product product product--<?php esc_attr_e($product_index); ?>">
+                            <a href="<?php echo esc_url( get_permalink( $product_id ) ); ?>" class="js-product product product--<?php echo esc_attr( $product_index ); ?>">
                                 <div class="product__info">
                                     <div class="product__info-top">
                                         <?php if( get_the_title($product_id) ){ ?>
                                             <span>
-                                                <?php echo get_the_title($product_id); ?>
+                                                <?php echo esc_html( get_the_title($product_id) ); ?>
                                             </span>
                                         <?php } ?>
 
                                         <?php if( get_field('acf_product_short_content', $product_id) ){ ?>
                                             <p>
-                                                <?php echo get_field('acf_product_short_content', $product_id); ?>
+                                                <?php skyrora_print_escaped_field('acf_product_short_content'); ?>
                                             </p>
                                         <?php } ?>
                                     </div>
                                     <div class="product__info-read">
                                         <span>Read more</span>
                                         <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                                            <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                                            <use xlink:href="<?php echo esc_url( THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right' ); ?>"></use>
                                         </svg>
                                     </div>
                                 </div>
                                 <div class="product__picture">
                                     <?php if( get_field('acf_product_hover', $product_id) ){ ?>
                                         <video class="product__video" loop="loop" muted="muted" loading="lazy" decoding="async" poster="<?php skyrora_image_url($product_image_id, 150, 880, ); ?>">
-                                            <source src="<?php echo esc_url(get_field('acf_product_hover', $product_id)); ?>" type="video/webm">
-                                            <source src="<?php echo esc_url(get_field('acf_product_hover_safary', $product_id)); ?>" type="video/quicktime">
+                                           <source src="<?php skyrora_print_escaped_field('acf_product_hover', 'url'); ?>" type="video/webm">
+                                        <source src="<?php skyrora_print_escaped_field('acf_product_hover_safary', 'url'); ?>" type="video/quicktime">
                                         </video>
                                     <?php }  else { 
                                          skyrora_image($product_image_id, 180, 220, );
@@ -61,25 +70,25 @@
                         } 
 
                         elseif( $product_index > 0 && $product_index < 5 ){ ?>
-                            <a href="<?php the_permalink($product_id); ?>" class="js-product product product--<?php esc_attr_e($product_index); ?>">
+                            <a href="<?php echo esc_url( get_permalink($product_id) ); ?>" class="js-product product product--<?php esc_attr_e($product_index); ?>">
                                 <div class="product__info">
                                     <div class="product__info-top">
                                         <?php if( get_the_title($product_id) ){ ?>
                                             <span>
-                                                <?php echo get_the_title($product_id); ?>
+                                                <?php echo esc_html( get_the_title($product_id) ); ?>
                                             </span>
                                         <?php } ?>
 
                                         <?php if( get_field('acf_product_short_content', $product_id) ){ ?>
                                             <p>
-                                                <?php echo get_field('acf_product_short_content', $product_id); ?>
+                                                <?php echo esc_html( get_field('acf_product_short_content', $product_id) ); ?>
                                             </p>
                                         <?php } ?>
                                     </div>
                                     <div class="product__info-read">
                                         <span>Read more</span>
                                         <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                                            <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                                            <use xlink:href="<?php echo esc_url( THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right' ); ?>"></use>
                                         </svg>
                                     </div>
                                 </div>
@@ -98,7 +107,7 @@
                             </a>
                         <?php } else { ?>
                             <?php if( $product_status == 'publish'){ ?>
-                                <a href="<?php the_permalink($product_id); ?>" class="product--horizontal product product--<?php esc_attr_e($product_index); ?>">
+                                <a href="<?php echo esc_url( get_permalink($product_id) ); ?>" class="product--horizontal product product--<?php esc_attr_e($product_index); ?>">
                             <?php } else { ?> 
                                 <div class="product--horizontal product product--<?php esc_attr_e($product_index); ?>">
                             <?php } ?>
@@ -106,13 +115,13 @@
                                         <div class="product__info-top">
                                             <?php if( get_the_title($product_id) ){ ?>
                                                 <span>
-                                                    <?php echo get_the_title($product_id); ?>
+                                                    <?php echo esc_html( get_the_title($product_id) ); ?>
                                                 </span>
                                             <?php } ?>
 
                                             <?php if( get_field('acf_product_short_content', $product_id) ){ ?>
                                                 <p>
-                                                    <?php echo get_field('acf_product_short_content', $product_id); ?>
+                                                    <?php echo esc_html( get_field('acf_product_short_content', $product_id) ); ?>
                                                 </p>
                                             <?php } ?>
                                         </div>
@@ -120,7 +129,7 @@
                                             <div class="product__info-read">
                                                 <span>Read more</span>
                                                 <svg width="1em" height="1em" class="icon icon-arrow-right ">
-                                                    <use xlink:href="<?=THEME?>/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right"></use>
+                                                    <use xlink:href="<?php echo esc_url( THEME . '/dist/s/images/useful/svg/theme/symbol-defs.svg#icon-arrow-right' ); ?>"></use>
                                                 </svg>
                                             </div>
                                         <?php } ?>
