@@ -13,9 +13,9 @@ if (!defined('ABSPATH')) {
         
         <?php 
         if ( get_field('innovation_media_type') === 'video' ) {
-            get_template_part('inc/blocks/innovation/templates/background-video');
+            get_template_part('blocks/innovation/templates/background-video');
         } else if (get_field('innovation_media_type') === 'image') { 
-            get_template_part('inc/blocks/innovation/templates/background');
+            get_template_part('blocks/innovation/templates/background');
         } 
         ?>
 

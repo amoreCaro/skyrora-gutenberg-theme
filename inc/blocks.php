@@ -18,14 +18,16 @@ function theme_acf_blocks() {
          * Banner block
          * Displays a banner section block.
          */
-        acf_register_block(array(
+        acf_register_block_type(array(
             'name'            => 'banner',
             'title'           => 'Block - Banner',
             'category'        => 'awenn',
-            'render_template' => PATH . '/inc/blocks/banner/preview.php',
+            'render_template' => PATH . '/blocks/banner/preview.php',
             'mode'            => 'preview',
             'icon'            => 'cover-image',
             'keywords'        => array('banner'),
+
+            // 'enqueue_style'   => THEME . '/blocks/banner/style.css',
         ));
 
         /**
@@ -36,7 +38,7 @@ function theme_acf_blocks() {
             'name'            => 'products',
             'title'           => 'Block - Products',
             'category'        => 'awenn',
-            'render_template' => PATH . '/inc/blocks/products/preview.php',
+            'render_template' => PATH . '/blocks/products/preview.php',
             'mode'            => 'preview',
             'icon'            => 'cart',
             'keywords'        => array('products'),
@@ -50,7 +52,7 @@ function theme_acf_blocks() {
             'name'            => 'innovation',
             'title'           => 'Block - Innovation',
             'category'        => 'awenn',
-            'render_template' => PATH . '/inc/blocks/innovation/preview.php',
+            'render_template' => PATH . '/blocks/innovation/preview.php',
             'mode'            => 'preview',
             'icon'            => 'lightbulb',
             'keywords'        => array('products', 'shop'),
@@ -64,10 +66,12 @@ function theme_acf_blocks() {
             'name'            => 'dedicated',
             'title'           => 'Block - Dedicated',
             'category'        => 'awenn',
-            'render_template' => PATH . '/inc/blocks/dedicated/preview.php',
+            'render_template' => PATH . '/blocks/dedicated/preview.php',
             'mode'            => 'preview',
             'icon'            => 'cart',
             'keywords'        => array('dedicated'),
+
+            // 'enqueue_style'   => THEME . '/blocks/dedicated/style.css',
         ));
 
         /**
@@ -78,7 +82,7 @@ function theme_acf_blocks() {
             'name'            => 'news',
             'title'           => 'Block - News',
             'category'        => 'awenn',
-            'render_template' => PATH . '/inc/blocks/news/preview.php',
+            'render_template' => PATH . '/blocks/news/preview.php',
             'mode'            => 'preview',
             'icon'            => 'megaphone',
             'keywords'        => array('products', 'shop'),
@@ -92,7 +96,7 @@ function theme_acf_blocks() {
             'name'            => 'leaders',
             'title'           => 'Block - Leaders',
             'category'        => 'awenn',
-            'render_template' => PATH . '/inc/blocks/leaders/preview.php',
+            'render_template' => PATH . '/blocks/leaders/preview.php',
             'mode'            => 'preview',
             'icon'            => 'groups',
             'keywords'        => array('products', 'shop'),
